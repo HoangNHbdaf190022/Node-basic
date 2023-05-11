@@ -20,7 +20,7 @@ Trong session này chúng ta sẽ làm việc việc với:
     File Môi Trường: .env
     -> npm install --save-exact dotenv@10.0.0
     
-# Session 8 - Router & MVC
+# Session 8 - ROUTER & MVC
 Router: [request, response] từ người dùng.
 MVC: (MVC Design Pattern) Model-View-Controller. Là một mẫu kiến ​​trúc, mô hình lập trình phổ biến được sử dụng để tạo cấu trúc cho nhiều trang web, ứng dụng tiên tiến.
 
@@ -43,6 +43,47 @@ facebook.com/hoangdepzai/
 return app.use("/", router) -> Mặc định như thì vào Home page chẳng hạn. Nhưng tôi muốn nó phải như này mới vào được Home page
 --> return app.use("/xxx", router) -> Bây giờ user phải nhập như này mới vào Home page: http://xxx/facebook.com/hoangdepzai/
 --> Tiền tố thì custom cái gì cũng được, tùy.
+
+# Session 9 - HTTP REQUEST METHOD & SỬ DỤNG DATABASE VỚI NODE.JS
+Có 4 request method: POST, GET, PUT, DELETE tương đương với CRUD  = Created, Read, Updated, Deleted.
+Trong session này chúng ta sẽ dùng MySQL. 
+    Tại sao không dùng MongoDB-noSQL?
+    Phi thực tế - nó sẽ lưu 1 đống data xuống mà đếch cần quan tâm gì hết
+    nếu làm chat app thì được, còn không thì vứt.
+
+### 1 - Có những database nào cần biết
+MongoDB-noSQL | MS SQL Server | Mysql Server | ORM database | Oracle | PostgreSQL 
+### 2 - ORM là gì?
+Object Relational Mapping (ORM) là 1 công nghệ sử dụng mô hình hướng đối tượng
+    Thường thì chúng ta viết query như này:
+    select * from users --> Raw query
+    findAllUsers --> cách viết của ORM. 
+    
+eg. 
+Raw query:
+    CREATE TABLE users {
+        "ID" int NOT NULL PRIMARY KEY AUTOINCREMENT,
+        "title" varchar(50),
+        "update_date" NOT NULL
+    }
+    ----------------------------------------------------------------
+ORM query:
+    class Users();
+    title = CharField
+    update_date = DateField
+    ----------------------------------------------------------------
+    Chúng ta sẽ sử dụng nó chỉ khi viết Model và ta cần mapping từ Modal xuống table ở db. Lói chung là xịn
+    Các SQL còn lại thì hầu như query giống nhau
+
+Các cài đặt trong session:
+mysql2 | sequelize | sequelize CLI
+-> npm install --save-exact mysql2@2.3.0
+-> npm install --save-dev sequelize-cli@6.2.0
+-> cd src --> npx sequelize-cli init
+
+
+
+
 
 
 

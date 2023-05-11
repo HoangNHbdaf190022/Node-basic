@@ -3,10 +3,10 @@ let getHomePage = (req, res) => {
     return res.render("index.ejs")
 }
 let getAboutPage = (req, res) => {
-    res.send("Hello, my name is Hoang")
+    return res.send("Hello, my name is Hoang")
 }
 let getExamplePage = (req, res) => {
-    res.send("Hello World!")
+    return res.send("Hello World!")
 }
 
 module.exports = { getHomePage, getAboutPage, getExamplePage }

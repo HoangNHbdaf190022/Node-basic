@@ -97,8 +97,10 @@ app.listen(port, () => {
 import express from 'express'
 import configViewEngine from "./configs/viewEngine";
 import initWebRoutes from "./route/web";
+import connection from './configs/connectDB';
 
-dotenv.config();
+require('dotenv').config();
+
 const app = express();
 const port = process.env.PORT || 8080;
 
