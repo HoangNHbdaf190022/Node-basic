@@ -93,24 +93,20 @@ app.listen(port, () => {
 });
 */
 
-// *** ffasdf ***
-import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+// *** EXPRESS ROUTERS ***
 import express from 'express'
 import configViewEngine from "./configs/viewEngine";
+import initWebRoutes from "./route/web";
 
-dotenv.config()
+dotenv.config();
 const app = express();
 const port = process.env.PORT || 8080;
 
+//SET UP VIEW ENGINE
 configViewEngine(app);
 
-app.get('/', (req, res) => {
-    res.render('index.ejs')
-})
-
-app.get('/me', (req, res) => {
-    res.send("Hello, my name is Hoang")
-})
+//INIT ROUTES
+initWebRoutes(app);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`)
