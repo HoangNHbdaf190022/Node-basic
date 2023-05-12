@@ -8,14 +8,4 @@ const connection = mysql.createConnection({
   database: 'node_basic'
 });
 
-// simple query
-connection.query(
-  'SELECT * FROM `users`',
-  function(err, results, fields) {
-        console.log("\n----- Check mysql connection! ------\n")
-    console.log(err ? err : "Connected MySQL!\n");
-    console.log(results[1]); // results contains rows returned by server
-  }
-);
-
 export default connection;

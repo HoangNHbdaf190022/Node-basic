@@ -1,12 +1,18 @@
+import connection from '../configs/connectDB';
+
 let getHomePage = (req, res) => {
-    //login to reder page
-    return res.render("index.ejs")
-}
-let getAboutPage = (req, res) => {
-    return res.send("Hello, my name is Hoang")
-}
-let getExamplePage = (req, res) => {
-    return res.send("Hello World!")
+    let data = [];
+    connection.query(
+        'SELECT * FROM `users`',
+        function(err, results, fields) {
+        console.log("\n----- Check mysql connection! ------\n")
+        console.log(err ? err : "Connected MySQL!\n");
+        console.log(results);
+        data = results.map((row) => {return row})
+
+        return res.render("index.ejs", {dataUser: data, test: "Hello World!"});
+        }
+    );
 }
 
-module.exports = { getHomePage, getAboutPage, getExamplePage }
+module.exports = { getHomePage }
