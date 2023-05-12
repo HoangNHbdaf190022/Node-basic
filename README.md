@@ -1,6 +1,6 @@
 **GITHUB LINK**: https://github.com/HoangNHbdaf190022/Node-basic <br/>
 **COURSE LINK**: https://www.youtube.com/watch?v=v4pgci2s980 <br/>
-**Description**: Khóa học được phát triển `Hỏi Dân IT` với 19 videos và 17 series
+**Description**: Khóa học được phát triển `Hỏi Dân IT` với 19 videos và 17 series <br/>
 **Cách viết README cơ bản**: https://ihoctot.com/cach-viet-readme-md
 ### Các dependency được cài đặt trong dự án
     "@babel/core": "7.15.5",
@@ -68,7 +68,7 @@ Hiểu đơn giản Router chính là Request và Response của người dùng 
 facebook.com/hoangdepzai/
 
 ### 3 - Tiền tố trong Router
-return app.use("/", router) -> Mặc định như thì vào Home page chẳng hạn. Nhưng tôi muốn nó phải như này mới vào được Home page<br/>
+return app.use("/", router) -> Mặc định như này thì vào Home page chẳng hạn. Nhưng tôi muốn nó phải như này mới vào được Home page<br/>
 --> return app.use("/xxx", router) -> Bây giờ user phải nhập như này mới vào Home page: http://xxx/facebook.com/hoangdepzai/<br/>
 --> Tiền tố thì custom cái gì cũng được, tùy.
 
@@ -111,9 +111,11 @@ Hàm connection.query sẽ nhận vào 2 tham số -> `connection.query`(sqlQuer
     -> Nên thường thì ngta chỉ print ra error với results thôi
 
 ### Các cài đặt trong session:
-mysql2 | sequelize | sequelize CLI
+| mysql2 |
 
     npm install --save-exact mysql2@2.3.0
+| sequelize | sequelize CLI
+
     npm install --save-dev sequelize-cli@6.2.0
 # Session - 10 CREATE NAVBAR - EJS LOOP DATA
 ### TÁC DỤNG CỦA EJS VÀ VIEW_ENGINE BẮT ĐẦU PHÁT HUY TÁC DỤNG
@@ -122,8 +124,8 @@ Trên file HTML chỉ viết được HTML chứ không thể dùng các login n
 Trong session này, chúng ta sẽ làm 1 ví dụ hiển thị dữ liệu từ db lên table
 Một số cách viết cú pháp logic trong file EJS như:<br/>
     <% **text** %><br/>
-    <%# **commen** %><br/>
-    <%= **biến** %><br/>
+    <%# **comment** %><br/>
+    <%= **variable** %><br/>
 Mỗi 1 dòng là 1 cái này: <% %><br/>
 **eg.** 
 
