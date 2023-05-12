@@ -1,4 +1,17 @@
 GITHUB LINK: https://github.com/HoangNHbdaf190022/Node-basic
+COURSE LINK: https://www.youtube.com/watch?v=v4pgci2s980
+Description: Khóa học được phát triển `Hỏi Dân IT` với 19 videos và 17 series
+### Các dependency được cài đặt trong dự án
+    "@babel/core": "7.15.5",
+    "@babel/node": "7.15.4",
+    "@babel/preset-env": "7.15.6",
+    "body-parser": "^1.20.2",
+    "dotenv": "10.0.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql2": "2.3.0",
+    "nodemon": "^2.0.22",
+    "sequelize-cli": "^6.2.0"
 # Session 6 - VIEW_ENGINE
 Trên file HTML chỉ viết được HTML chứ không thể dùng các login như vòng lặp các thứ nhưng VIEW ENGINE giúp chúng ta xử lý các điều kiện logic trong file HTML.
 Trong session này chúng ta sẽ làm việc việc với:
@@ -61,16 +74,16 @@ Object Relational Mapping (ORM) là 1 công nghệ sử dụng mô hình hướn
     
 eg. 
 Raw query:
-    CREATE TABLE users {
-        "ID" int NOT NULL PRIMARY KEY AUTOINCREMENT,
-        "title" varchar(50),
-        "update_date" NOT NULL
-    }
+    `CREATE TABLE users {`
+        `"ID" int NOT NULL PRIMARY KEY AUTOINCREMENT,`
+        `"title" varchar(50),`
+        `"update_date" NOT NULL`
+    }`
     ----------------------------------------------------------------
 ORM query:
-    class Users();
-    title = CharField
-    update_date = DateField
+    `class Users();`
+    `title = CharField`
+    `update_date = DateField`
     ----------------------------------------------------------------
     Chúng ta sẽ sử dụng nó chỉ khi viết Model và ta cần mapping từ Modal xuống table ở db. Lói chung là xịn
     Các SQL còn lại thì hầu như query giống nhau
@@ -97,11 +110,11 @@ Một số cách viết cú pháp logic trong file EJS như:
     <%= biến %>
 Mỗi 1 dòng là 1 cái này: <% %>
 eg. 
-    <% for(let i=0; i < dataUser.length; i++) { %>
-        <tr>
-            <td><%= dataUser[i].id %></td>
-            <td><%= dataUser[i].firstName %></td>
-            <td><%= dataUser[i].lastName %></td>
-        </tr>
-    <% } %>
-    <%# Bạn đã thông não chưa :D %>
+    `<% for(let i=0; i < dataUser.length; i++) { %>`
+        `<tr>`
+            `<td><%= dataUser[i].id %></td>`
+            `<td><%= dataUser[i].firstName %></td>`
+            `<td><%= dataUser[i].lastName %></td>`
+        `</tr>`
+    `<% } %>`
+    `<%# Bạn đã thông não chưa :D %>`
