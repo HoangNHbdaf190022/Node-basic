@@ -96,8 +96,7 @@ app.listen(port, () => {
 // *** EXPRESS ROUTERS ***
 import express from 'express'
 import configViewEngine from "./configs/viewEngine";
-import initWebRoutes from "./route/web";
-// import connection from './configs/connectDB';
+import initWebRoutes from "./routes/route";
 
 require('dotenv').config();
 

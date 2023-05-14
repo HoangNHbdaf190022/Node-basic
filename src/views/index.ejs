@@ -64,7 +64,6 @@
   </div>
   <div style="padding-left:16px">
     <h2>List users</h2>
-    <%=  test %>
     <div class="w3-container">
       <p>Move the mouse over the table rows to see the effect.</p>
 
@@ -88,13 +87,13 @@
                     <td><%= dataUser[i].email %></td>
                     <td><%= dataUser[i].address %></td>
                     <td>
-                        <a href="detail/users/<%= dataUser[i].id %>" target="_blank" style="text-decoration: none;">
+                        <a href="detail/user/<%= dataUser[i].id %>" target="_blank" style="text-decoration: none;">
                             <button style="background: orange;">Detail</button>
                         </a>
-                        <a href="detail/users/<%= dataUser[i].id %>" target="_blank" style="text-decoration: none;">
+                        <a href="#" style="text-decoration: none;">
                             <button style="background: green;">Edit</button>
                         </a>
-                        <a href="detail/users/<%= dataUser[i].id %>" target="_blank" style="text-decoration: none;">
+                        <a href="#" style="text-decoration: none;">
                             <button style="background: red;">Delete</button>
                         </a>
                     </td>
