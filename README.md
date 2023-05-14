@@ -3,8 +3,10 @@
 **Description**: Khóa học được phát triển `Hỏi Dân IT` với 19 videos và 17 series <br/>
 **Cách viết README cơ bản**: https://ihoctot.com/cach-viet-readme-md
 
-### Node.js version
-14.17.0
+### Bạn cần chuẩn bị gì?
+**Node**: 14.17.0 <br/>
+**NVM**: NVM giúp bạn có thể chuyển đổi qua lại giữa các node version: https://github.com/nvm-sh/nvm <br/>
+**Xampp**: Đây là database mà chúng ta sẽ làm việc
 ### Các dependency được cài đặt trong dự án
     "@babel/core": "7.15.5",
     "@babel/node": "7.15.4",
@@ -17,7 +19,6 @@
     "nodemon": "^2.0.22",
     "sequelize-cli": "^6.2.0"
 ### Các cài đặt
-Xampp
 EJS | nodemon | body-parser | @babel/core | @babel/node | @babel/preset-env 
 
     npm install --save-exact ejs@3.1.9 body-parser@1.19.0 nodemon@2.0.12 @babel/core@7.15.5 @babel/node@7.15.4 @babel/preset-env@7.15.6
