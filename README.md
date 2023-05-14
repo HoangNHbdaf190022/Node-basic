@@ -2,6 +2,9 @@
 **COURSE LINK**: https://www.youtube.com/watch?v=v4pgci2s980 <br/>
 **Description**: Khóa học được phát triển `Hỏi Dân IT` với 19 videos và 17 series <br/>
 **Cách viết README cơ bản**: https://ihoctot.com/cach-viet-readme-md
+
+### Node.js version
+14.17.0
 ### Các dependency được cài đặt trong dự án
     "@babel/core": "7.15.5",
     "@babel/node": "7.15.4",
@@ -13,7 +16,8 @@
     "mysql2": "2.3.0",
     "nodemon": "^2.0.22",
     "sequelize-cli": "^6.2.0"
-### Cách cài đặt
+### Các cài đặt
+Xampp
 EJS | nodemon | body-parser | @babel/core | @babel/node | @babel/preset-env 
 
     npm install --save-exact ejs@3.1.9 body-parser@1.19.0 nodemon@2.0.12 @babel/core@7.15.5 @babel/node@7.15.4 @babel/preset-env@7.15.6
@@ -27,7 +31,7 @@ mysql2 | sequelize | sequelize CLI
     npm install --save-exact mysql2@2.3.0
     npm install --save-dev sequelize-cli@6.2.0
 # Session 6 - VIEW_ENGINE
-Trên file HTML chỉ viết được HTML chứ không thể dùng các login như vòng lặp các thứ nhưng VIEW ENGINE giúp chúng ta xử lý các điều kiện logic trong file HTML.<br/>
+Trên file HTML chỉ viết được HTML chứ không thể dùng các logic như vòng lặp các thứ nhưng VIEW ENGINE giúp chúng ta xử lý các điều kiện logic trong file HTML.<br/>
 Trong session này chúng ta sẽ làm việc việc với:<br/>
 1. TEMPLATE_ENGINE: EJS
 2. Body-parser để chuyển cấu trúc của data dưới dạng JSON
@@ -120,7 +124,7 @@ Hàm connection.query sẽ nhận vào 2 tham số -> `connection.query`(sqlQuer
 # Session - 10 CREATE NAVBAR - EJS LOOP DATA
 ### TÁC DỤNG CỦA EJS VÀ VIEW_ENGINE BẮT ĐẦU PHÁT HUY TÁC DỤNG
 Như đã đề cập ở **Session 6**
-Trên file HTML chỉ viết được HTML chứ không thể dùng các login như vòng lặp các thứ nhưng VIEW ENGINE giúp chúng ta xử lý các điều kiện logic trong file HTML.<br/>
+Trên file HTML chỉ viết được HTML chứ không thể dùng các logic như vòng lặp các thứ nhưng VIEW ENGINE giúp chúng ta xử lý các điều kiện logic trong file HTML.<br/>
 Trong session này, chúng ta sẽ làm 1 ví dụ hiển thị dữ liệu từ db lên table
 Một số cách viết cú pháp logic trong file EJS như:<br/>
     <% **text** %><br/>
