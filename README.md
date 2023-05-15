@@ -170,9 +170,15 @@ Trong session này, chúng ta sẽ tìm hiểu về `router param`. Ví dụ nh�
 3. `Pool` trong MySQL<br/>
 Pooling là một kỹ thuật cho phép **tạo ra nhiều kết nối** đến cơ sở dữ liệu để đáp ứng nhu cầu xử lý tương tác với cơ sở dữ liệu của các ứng dụng. Nó cho phép các kết nối được tạo trước đó được **tái sử dụng** khi cần thiết, thay vì tạo ra các kết nối mới cho mỗi yêu cầu từ ứng dụng.
 4. Chương trình sẽ đọc `router param` ntn?<br/>
-Ở file _homeController.js_ - hàm **getDetailPage()** đã định nghĩa và lấy id từ db ra, **userID** sẽ là đại diện cho **id** đó<br/>
-Ở file _route.js_. Trong hàm **initWebRoutes()** lấy Route path là _'/detail/user/:userID'_ <br/>
-Còn bây giờ để hiển thị detail user trên browser là việc của _index.ejs_ thông qua anchor _detail/user/dataUser[i].id_
+Ở file _`homeController.js`_ - hàm **getDetailPage()** đã định nghĩa và lấy id từ db ra, **userID** sẽ là đại diện cho **id** đó<br/>
+Ở file _`route.js`_. Trong hàm **initWebRoutes()** lấy Route path là _'/detail/user/:userID'_ <br/>
+Còn bây giờ để hiển thị detail user trên browser là việc của _`index.ejs`_ thông qua anchor _detail/user/dataUser[i].id_
+# Session 12 - FORM VÀ POST REQUEST
+Trong session này, chúng ta sẽ áp dụng form và method=POST vào project để add new user. Sau khi add thì dùng `res.redirect('/')` để refresh lại trang.<br/>
+Một số thay đổi của project trong session này:<br/>
+1. Trong file _`server.js`_, ta thêm **_Middleware_** for routes
+2. Trong file _`homeController.js`_, ta thêm 1 **_distructuring_** từ **_req.body_** để thực hiện insert data vào db
+3. Tất nhiên phải thêm route (_handlePost()_) trong _`route.js`_ rồi :D
 
 # 10 vạn câu hỏi vì sao
 ### **Tại sao sử dụng `MySQL2`**

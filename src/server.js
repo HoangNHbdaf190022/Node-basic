@@ -103,6 +103,10 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 8080;
 
+//Middleware for routes
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 //SET UP VIEW ENGINE
 configViewEngine(app);
 
