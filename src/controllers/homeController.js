@@ -21,4 +21,23 @@ const handlePost = async (req, res) => {
   return res.redirect('/')
 }
 
-module.exports = { getHomepage, getDetailPage, handlePost };
+const handleEdit = async (req, res) => {
+  let userId = req.params.userID;
+  let [user] = await pool.execute(`select * from users where id = ?`, [userId]);
+  return res.render('update.ejs', { dataUser: user[0] })
+}
+
+const handleUpdate = (req, res) => {
+  let {firstName, lastName, email, address, id} = req.body;
+  pool.execute(`update users set firstName = ?, lastName = ?, email = ?, address = ? where id = ? `,
+    [firstName, lastName, email, address, id]);
+  return res.redirect('/');
+}
+
+const handleDelete = (req, res) => {
+  let userId = req.body.userID;
+  pool.execute(`delete from users where id = ?`, [userId]);
+  return res.redirect('/');
+}
+
+module.exports = { getHomepage, getDetailPage, handlePost, handleEdit, handleUpdate, handleDelete };

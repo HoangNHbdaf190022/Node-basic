@@ -59,12 +59,15 @@
     label {
       display: flex;
     }
-
-    a>button {
+    a {text-decoration: none;}
+    button {
       outline: none;
       border: none;
       color: wheat;
     }
+    button {cursor: pointer;}
+    .buttonAddNew {margin-left: 30%; margin-top: 10px; margin-bottom: 5%; background: #04AA6D; color: #333;} 
+    .resize-button {width: 100px; height: 30px; padding: 5px 15px; margin-left: 15px;}
   </style>
 </head>
 
@@ -109,16 +112,17 @@
               <td>
                 <%= dataUser[i].address %>
               </td>
-              <td>
-                <a href="detail/user/<%= dataUser[i].id %>" target="_blank" style="text-decoration: none;">
-                  <button style="background: orange;">Detail</button>
+              <td style="display: flex;">
+                <a href="detail/user/<%= dataUser[i].id %>" target="_blank">
+                  <button class="resize-button"  style="background: orange;">Detail</button>
                 </a>
-                <a href="#" style="text-decoration: none;">
-                  <button style="background: green;">Edit</button>
-                </a>
-                <a href="#" style="text-decoration: none;">
-                  <button style="background: red;">Delete</button>
-                </a>
+                <form action="/edit/<%= dataUser[i].id %>" method="GET" target="_blank">
+                  <button class="resize-button" style="background: green;" type="submit">Edit</button>
+                </form>
+                <form action="/delete" method="POST" target="_blank">
+                  <input type="text" style="position: absolute;" hidden value="<%= dataUser[i].id %>" name="userID" >
+                  <button class="resize-button" style="background: red;" type="submit">Delete</button>
+                </form>
               </td>
             </tr>
             <%}%>
@@ -147,7 +151,7 @@
           </div>
           <button 
             type="submit" 
-            style="margin-left: 30%; margin-top: 10px; margin-bottom: 5%;cursor: pointer;">
+            class="buttonAddNew">
               Add new
           </button>
         </div>

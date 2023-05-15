@@ -152,6 +152,7 @@ lúc này ở ngoài thanh URL nó sẽ hiể thị như **(3)** <br/>
 
 Trong session này, chúng ta sẽ tìm hiểu về `router param`. Ví dụ như lúc ta click vào detail thì sẽ hiện ra thông tin của 1 người dùng, của 1 sản phẩm từ db chẳng hạn. Về session này thì khuyên bạn nên follow docs thật kĩ https://expressjs.com/en/guide/routing.html.<br/>
 2. Tiếp theo là `connect mysql with promise`. MySQL2 hỗ trợ Promise thông qua sử dụng thư viện Bluebird, một thư viện Promise bổ sung cho Node.js. Các phương thức của MySQL2 trả về một Promise, cho phép sử dụng cú pháp async/await hoặc chaining với then/catch để xử lý các yêu cầu truy vấn cơ sở dữ liệu.
+
     // tạo kết nối trong file connectDB.js
     const mysql = require('mysql2/promise');
 
@@ -179,6 +180,10 @@ Một số thay đổi của project trong session này:<br/>
 1. Trong file _`server.js`_, ta thêm **_Middleware_** for routes
 2. Trong file _`homeController.js`_, ta thêm 1 **_distructuring_** từ **_req.body_** để thực hiện insert data vào db
 3. Tất nhiên phải thêm route (_handlePost()_) trong _`route.js`_ rồi :D
+# Session 13 - HOÀN THIỆN CRUD
+Trong session này, chúng ta tiếp tục hoàn thiện nốt 2 chức năng đó là Edit, Delete.<br/>
+Có khá nhiều thay đổi trong file _`index.ejs`_, 2 nút edit và delete sẽ được thực thi dưới dạng form để tận dụng thuộc tính **action** và **method**. Khá giống thẻ anchor nhưng form có thêm method **POST**, **GET** để bắn lên _`homeController`_ xử lý. <br/>
+Chúng ta có thêm 1 file mới trong thư mục **View** đó là _`update.js`_. jabdfjasbdfkabdhbak
 
 # 10 vạn câu hỏi vì sao
 ### **Tại sao sử dụng `MySQL2`**
