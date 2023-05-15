@@ -142,3 +142,76 @@ Mỗi 1 dòng là 1 cái này: <% %><br/>
         </tr>
     <% } %>
     <%# Bạn đã thông não chưa :D %>
+
+# Session - 11 ROUTER PARAMS
+Route parameters được đặt theo URL sẽ được phân khúc như **(1)**, giá trị được cap lại sẽ được điền vào từng param tương ứng như **(2)**, 
+lúc này ở ngoài thanh URL nó sẽ hiể thị như **(3)** <br/> 
+**(1)** Route path: /users/:userId/books/:bookId --> Được minh họa trong file route<br/>
+**(2)** req.params: { "userId": "34", "bookId": "8989" } --> Nếu truyền tuần tự các tham số sau dấu 2 chấm thì kết quả sẽ trả ra như URL bên dưới<br/>
+**(3)** Request URL: http://localhost:3000/users/34/books/8989 --> Result
+
+Trong session này, chúng ta sẽ tìm hiểu về `router param`. Ví dụ như lúc ta click vào detail thì sẽ hiện ra thông tin của 1 người dùng, của 1 sản phẩm từ db chẳng hạn. Về session này thì khuyên bạn nên follow docs thật kĩ https://expressjs.com/en/guide/routing.html.<br/>
+2. Tiếp theo là `connect mysql with promise`. MySQL2 hỗ trợ Promise thông qua sử dụng thư viện Bluebird, một thư viện Promise bổ sung cho Node.js. Các phương thức của MySQL2 trả về một Promise, cho phép sử dụng cú pháp async/await hoặc chaining với then/catch để xử lý các yêu cầu truy vấn cơ sở dữ liệu.
+    // tạo kết nối trong file connectDB.js
+    const mysql = require('mysql2/promise');
+
+    const connection = await mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'db_name',
+    password: 'password' //maybe
+    });
+
+    // thực hiện truy vấn
+    const [rows, fields] = await connection.execute('SELECT * FROM users');
+
+    // xử lý kết quả truy vấn
+    console.log(rows);
+3. `Pool` trong MySQL<br/>
+Pooling là một kỹ thuật cho phép **tạo ra nhiều kết nối** đến cơ sở dữ liệu để đáp ứng nhu cầu xử lý tương tác với cơ sở dữ liệu của các ứng dụng. Nó cho phép các kết nối được tạo trước đó được **tái sử dụng** khi cần thiết, thay vì tạo ra các kết nối mới cho mỗi yêu cầu từ ứng dụng.
+4. Chương trình sẽ đọc `router param` ntn?<br/>
+Ở file _homeController.js_ - hàm **getDetailPage()** đã định nghĩa và lấy id từ db ra, **userID** sẽ là đại diện cho **id** đó<br/>
+Ở file _route.js_. Trong hàm **initWebRoutes()** lấy Route path là _'/detail/user/:userID'_ <br/>
+Còn bây giờ để hiển thị detail user trên browser là việc của _index.ejs_ thông qua anchor _detail/user/dataUser[i].id_
+
+# 10 vạn câu hỏi vì sao
+### **Tại sao sử dụng `MySQL2`**
+Đầu tiên phải biết MySQL2 là một **thư viện** kết nối MySQL cho Node.js, trong khi đó MySQL là một hệ quản trị cơ sở dữ liệu phổ biến, được sử dụng rộng rãi trên nhiều nền tảng khác nhau.<br/>
+So sánh giữa MySQL2 và MySQL, chúng ta có thể thấy:<br/>
+1. MySQL2 hỗ trợ các tính năng độc đáo như **query prepare**, hỗ trợ **Promise** và **stream**, trong khi MySQL không hỗ trợ các tính năng này.
+2. MySQL2 có **hiệu suất tốt hơn** so với MySQL. MySQL2 sử dụng **query prepare** để giảm tải và cải thiện hiệu suất, trong khi MySQL không có tính năng này.
+3. MySQL2 có cách **tiếp cận an toàn hơn về bảo mật** bằng cách hỗ trợ SSL và các phương pháp tránh tấn công SQL Injection, trong khi MySQL cũng cung cấp các tính năng tương tự, nhưng chưa được tối ưu hóa tốt như MySQL2.
+
+### **`Sequelize` là gì**
+**Sequelize** được gọi là một công cụ (**tool**) ORM (Object-Relational Mapping). **ORM** là một kỹ thuật lập trình cho phép chúng ta tương tác với cơ sở dữ liệu bằng các đối tượng (objects) thay vì viết các truy vấn SQL trực tiếp. Sequelize giúp **đơn giản hóa** việc tương tác với cơ sở dữ liệu bằng cách cung cấp một giao diện dễ sử dụng và **các tính năng** hữu ích như tạo bảng, thêm, sửa, xóa và truy vấn dữ liệu. Vì vậy, nó được coi là một công cụ hữu ích trong quá trình phát triển ứng dụng web Node.js.<br/>
+ChatGPT sẽ cho bạn các **ví dụ thực tế về sequelize**
+### **`Pool` là gì**
+Pooling là một kỹ thuật cho phép **tạo ra nhiều kết nối** đến cơ sở dữ liệu để đáp ứng nhu cầu xử lý tương tác với cơ sở dữ liệu của các ứng dụng. Nó cho phép các kết nối được tạo trước đó được **tái sử dụng** khi cần thiết, thay vì tạo ra các kết nối mới cho mỗi yêu cầu từ ứng dụng. <br/>
+Trong Node.js, mysql2 hỗ trợ Pooling thông qua hai phương thức chính: **createPool** và **pool**. createPool được sử dụng để tạo ra một pool kết nối mới, và pool được sử dụng để lấy một kết nối từ pool.<br/>
+eg. **createPool**
+    const mysql = require('mysql2');
+
+    const pool = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'mydb',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+    });
+Ở đây, ta đã tạo ra một pool kết nối với giới hạn kết nối là 10. Nếu một yêu cầu từ ứng dụng yêu cầu kết nối nhưng tất cả các kết nối trong pool đều đã được sử dụng, thì yêu cầu đó sẽ được đưa vào hàng đợi (queueLimit: 0) và đợi cho đến khi một kết nối được giải phóng.
+
+eg. **Pool**<br/>
+Sau khi tạo ra một pool kết nối, ta có thể sử dụng phương thức pool để lấy một kết nối từ pool:
+    pool.getConnection((err, connection) => {
+    if (err) throw err; // xử lý lỗi
+
+    connection.query('SELECT * FROM users', (error, results, fields) => {
+        connection.release(); // giải phóng kết nối
+        if (error) throw error; // xử lý lỗi
+        console.log(results); // xử lý kết quả truy vấn
+    });
+    });
+Ở đây, ta sử dụng phương thức **getConnection** của pool để lấy một kết nối từ pool. Khi kết nối được sử dụng xong, ta sử dụng phương thức release để giải phóng kết nối và đưa nó trở lại trong pool để sử dụng cho các yêu cầu tiếp theo. Sau đó, ta thực hiện truy vấn thông qua kết nối này bằng phương thức query
+
