@@ -11,13 +11,14 @@
     "@babel/core": "7.15.5",
     "@babel/node": "7.15.4",
     "@babel/preset-env": "7.15.6",
+    "app-root-path": "3.0.0",
     "body-parser": "^1.20.2",
     "dotenv": "10.0.0",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "multer": "1.4.3",
     "mysql2": "2.3.0",
-    "nodemon": "^2.0.22",
-    "sequelize-cli": "^6.2.0"
+    "nodemon": "^2.0.22"
 ### Các cài đặt
 EJS | nodemon | body-parser | @babel/core | @babel/node | @babel/preset-env 
 
@@ -31,6 +32,10 @@ mysql2 | sequelize | sequelize CLI
 
     npm install --save-exact mysql2@2.3.0
     npm install --save-dev sequelize-cli@6.2.0
+---
+| Multer |
+
+    npm install --save-exact multer@1.4.3
 # Session 6 - VIEW_ENGINE
 Trên file HTML chỉ viết được HTML chứ không thể dùng các logic như vòng lặp các thứ nhưng VIEW ENGINE giúp chúng ta xử lý các điều kiện logic trong file HTML.<br/>
 Trong session này chúng ta sẽ làm việc việc với:<br/>

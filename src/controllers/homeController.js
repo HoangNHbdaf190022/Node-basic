@@ -1,4 +1,6 @@
 import pool from '../configs/connectDB';
+import path from 'path';
+import multer from 'multer';
 
 const getHomepage = async (req, res) => {
   const [rows, fields] = await pool.execute('SELECT * FROM `users`');
@@ -40,4 +42,43 @@ const handleDelete = (req, res) => {
   return res.redirect('/');
 }
 
-module.exports = { getHomepage, getDetailPage, handlePost, handleEdit, handleUpdate, handleDelete };
+const getUploadPage = async (req, res) => {
+  return res.render('uploadFile.ejs')
+}
+
+const upload = multer().single('single_file');
+
+const handleUploadFile = async (req, res) => {
+  upload(req, res, function (err) {
+    if (req.fileValidationError) {
+        return res.send(req.fileValidationError);
+    }
+    else if (!req.file) {
+        return res.send('Please select an image to upload');
+    }
+    else if (err instanceof multer.MulterError) {
+        return res.send(err);
+    }
+    else if (err) {
+        return res.send(err);
+    }
+    res.send(`You have uploaded this image: <hr/><img src="/image/${req.file.filename}" width="500"><hr /><a href="/upload">Upload another image</a>`);
+    });
+}
+
+// milti file
+const handleUploadMultiFile = async (req, res) => {
+  res.send('ok upload multi file')
+}
+
+module.exports = { 
+  getHomepage, 
+  getDetailPage, 
+  handlePost, 
+  handleEdit, 
+  handleUpdate, 
+  handleDelete, 
+  getUploadPage, 
+  handleUploadFile, 
+  handleUploadMultiFile
+};
