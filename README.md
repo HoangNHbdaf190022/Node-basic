@@ -183,7 +183,14 @@ Một số thay đổi của project trong session này:<br/>
 # Session 13 - HOÀN THIỆN CRUD
 Trong session này, chúng ta tiếp tục hoàn thiện nốt 2 chức năng đó là Edit, Delete.<br/>
 Có khá nhiều thay đổi trong file _`index.ejs`_, 2 nút edit và delete sẽ được thực thi dưới dạng form để tận dụng thuộc tính **action** và **method**. Khá giống thẻ anchor nhưng form có thêm method **POST**, **GET** để bắn lên _`homeController`_ xử lý. <br/>
-Chúng ta có thêm 1 file mới trong thư mục **View** đó là _`update.js`_. jabdfjasbdfkabdhbak
+Chúng ta có thêm 1 file mới trong thư mục **View** đó là _`update.js`_ để update ngược lại db. Cách tạo hàm xử lý không khác nhau là mấy.
+# Session 14 - REST/RESTFUL API
+Trong session này, chúng ta sẽ làm quen với 1 cái tên thân thuộc và dễ cực-**restful-api**. <br/>
+Ta sẽ thêm 1 _`API controller`_ trong thư mục controller và 1 file _`api.js`_ trong thư mục route <br/>
+Đừng quên rằng nếu thêm mới 1 route thì nhớ phải khai báo trong file _`server.js`_ đấy nhá <br/>
+
+Đọc code ta thấy code api dễ vailon, toàn copy lại ở _`homeController.js`_. Bây giờ sẽ không bị ràng buộc bởi dăm ba cái phương thức nữa mà sẽ đầy đủ **POST GET PUT DELETE** <br/>
+Ở _`API Controller`_ data trả về cũng là **JSON** nhưng thêm status(200) thôi và ở **_deleteUser()_** thì không phải _req.body_ nữa mà sẽ là _req.params_ nhé
 
 # 10 vạn câu hỏi vì sao
 ### **Tại sao sử dụng `MySQL2`**

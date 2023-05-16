@@ -97,6 +97,8 @@ app.listen(port, () => {
 import express from 'express'
 import configViewEngine from "./configs/viewEngine";
 import initWebRoutes from "./routes/route";
+import initAPIRoutes from "./routes/api";
+
 
 require('dotenv').config();
 
@@ -110,8 +112,9 @@ app.use(express.json());
 //SET UP VIEW ENGINE
 configViewEngine(app);
 
-//INIT ROUTES
+//INIT Web, API ROUTES
 initWebRoutes(app);
+initAPIRoutes(app);
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`)

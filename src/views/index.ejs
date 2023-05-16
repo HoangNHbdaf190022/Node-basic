@@ -119,7 +119,7 @@
                 <form action="/edit/<%= dataUser[i].id %>" method="GET" target="_blank">
                   <button class="resize-button" style="background: green;" type="submit">Edit</button>
                 </form>
-                <form action="/delete" method="POST" target="_blank">
+                <form action="/delete" method="POST">
                   <input type="text" style="position: absolute;" hidden value="<%= dataUser[i].id %>" name="userID" >
                   <button class="resize-button" style="background: red;" type="submit">Delete</button>
                 </form>
