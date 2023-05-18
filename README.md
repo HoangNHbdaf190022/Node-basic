@@ -21,21 +21,25 @@
     "nodemon": "^2.0.22"
 ### Các cài đặt
 EJS | nodemon | body-parser | @babel/core | @babel/node | @babel/preset-env 
-
-    npm install --save-exact ejs@3.1.9 body-parser@1.19.0 nodemon@2.0.12 @babel/core@7.15.5 @babel/node@7.15.4 @babel/preset-env@7.15.6
+```bash
+npm install --save-exact ejs@3.1.9 body-parser@1.19.0 nodemon@2.0.12 @babel/core@7.15.5 @babel/node@7.15.4 @babel/preset-env@7.15.6
+```
 ---
 | dotENV |
-
-    npm install --save-exact dotenv@10.0.0
+```bash
+npm install --save-exact dotenv@10.0.0
+```
 ---
 mysql2 | sequelize | sequelize CLI
-
-    npm install --save-exact mysql2@2.3.0
-    npm install --save-dev sequelize-cli@6.2.0
+```bash
+npm install --save-exact mysql2@2.3.0
+npm install --save-dev sequelize-cli@6.2.0
+```
 ---
 | Multer |
-
-    npm install --save-exact multer@1.4.3
+```bash
+npm install --save-exact multer@1.4.3
+```
 # Session 6 - VIEW_ENGINE
 Trên file HTML chỉ viết được HTML chứ không thể dùng các logic như vòng lặp các thứ nhưng VIEW ENGINE giúp chúng ta xử lý các điều kiện logic trong file HTML.<br/>
 Trong session này chúng ta sẽ làm việc việc với:<br/>
@@ -46,18 +50,18 @@ Trong session này chúng ta sẽ làm việc việc với:<br/>
 
 ### Các cài đặt trong session:
 EJS | nodemon | body-parser | @babel/core | @babel/node | @babel/preset-env<br/>
-
-    npm install --save-exact ejs@3.1.9 body-parser@1.19.0 nodemon@2.0.12 @babel/core@7.15.5 @babel/node@7.15.4 @babel/preset-env@7.15.6
-
+```bash
+npm install --save-exact ejs@3.1.9 body-parser@1.19.0 nodemon@2.0.12 @babel/core@7.15.5 @babel/node@7.15.4 @babel/preset-env@7.15.6
+```
 # Session 7 - STATIC FILES
 Người dùng muốn từ giao diện muốn lấy file ảnh, media của chúng ta!<br/>
 Chúng ta không muốn người dùng đạt được điều đó!<br/>
 => Static Files ra đời để cho phép HOẶC chặn người dùng thực hiện điều đó.
 
 Trong session này chúng ta sẽ làm việc việc với File Môi Trường: .env
-
-    npm install --save-exact dotenv@10.0.0
-    
+```bash
+ npm install --save-exact dotenv@10.0.0
+ ```    
 # Session 8 - ROUTER & MVC
 Router: [request, response] từ người dùng.<br/>
 MVC: (MVC Design Pattern) Model-View-Controller. Là một mẫu kiến ​​trúc, mô hình lập trình phổ biến được sử dụng để tạo cấu trúc cho nhiều trang web, ứng dụng tiên tiến.
@@ -122,11 +126,13 @@ Hàm connection.query sẽ nhận vào 2 tham số -> `connection.query`(sqlQuer
 
 ### Các cài đặt trong session:
 | mysql2 |
-
-    npm install --save-exact mysql2@2.3.0
+```bash
+npm install --save-exact mysql2@2.3.0
+```
 | sequelize | sequelize CLI
-
-    npm install --save-dev sequelize-cli@6.2.0
+```bash
+npm install --save-dev sequelize-cli@6.2.0
+```
 # Session - 10 CREATE NAVBAR - EJS LOOP DATA
 ### TÁC DỤNG CỦA EJS VÀ VIEW_ENGINE BẮT ĐẦU PHÁT HUY TÁC DỤNG
 Như đã đề cập ở **Session 6**
@@ -138,7 +144,7 @@ Một số cách viết cú pháp logic trong file EJS như:<br/>
     <%= **variable** %><br/>
 Mỗi 1 dòng là 1 cái này: <% %><br/>
 **eg.** 
-
+```bash
     <% for(let i=0; i < dataUser.length; i++) { %>
         <tr>
             <td><%= dataUser[i].id %></td>
@@ -147,7 +153,7 @@ Mỗi 1 dòng là 1 cái này: <% %><br/>
         </tr>
     <% } %>
     <%# Bạn đã thông não chưa :D %>
-
+```
 # Session - 11 ROUTER PARAMS
 Route parameters được đặt theo URL sẽ được phân khúc như **(1)**, giá trị được cap lại sẽ được điền vào từng param tương ứng như **(2)**, 
 lúc này ở ngoài thanh URL nó sẽ hiể thị như **(3)** <br/> 
@@ -157,7 +163,7 @@ lúc này ở ngoài thanh URL nó sẽ hiể thị như **(3)** <br/>
 
 Trong session này, chúng ta sẽ tìm hiểu về `router param`. Ví dụ như lúc ta click vào detail thì sẽ hiện ra thông tin của 1 người dùng, của 1 sản phẩm từ db chẳng hạn. Về session này thì khuyên bạn nên follow docs thật kĩ https://expressjs.com/en/guide/routing.html.<br/>
 2. Tiếp theo là `connect mysql with promise`. MySQL2 hỗ trợ Promise thông qua sử dụng thư viện Bluebird, một thư viện Promise bổ sung cho Node.js. Các phương thức của MySQL2 trả về một Promise, cho phép sử dụng cú pháp async/await hoặc chaining với then/catch để xử lý các yêu cầu truy vấn cơ sở dữ liệu.
-
+```bash
     // tạo kết nối trong file connectDB.js
     const mysql = require('mysql2/promise');
 
@@ -173,6 +179,7 @@ Trong session này, chúng ta sẽ tìm hiểu về `router param`. Ví dụ nh�
 
     // xử lý kết quả truy vấn
     console.log(rows);
+```
 3. `Pool` trong MySQL<br/>
 Pooling là một kỹ thuật cho phép **tạo ra nhiều kết nối** đến cơ sở dữ liệu để đáp ứng nhu cầu xử lý tương tác với cơ sở dữ liệu của các ứng dụng. Nó cho phép các kết nối được tạo trước đó được **tái sử dụng** khi cần thiết, thay vì tạo ra các kết nối mới cho mỗi yêu cầu từ ứng dụng.
 4. Chương trình sẽ đọc `router param` ntn?<br/>
@@ -196,7 +203,8 @@ Ta sẽ thêm 1 _`API controller`_ trong thư mục controller và 1 file _`api.
 
 Đọc code ta thấy code api dễ vailon, toàn copy lại ở _`homeController.js`_. Bây giờ sẽ không bị ràng buộc bởi dăm ba cái phương thức nữa mà sẽ đầy đủ **POST GET PUT DELETE** <br/>
 Ở _`API Controller`_ data trả về cũng là **JSON** nhưng thêm status(200) thôi và ở **_deleteUser()_** thì không phải _req.body_ nữa mà sẽ là _req.params_ nhé
-
+# Session 15+16
+Toàn copy paste, tự mở commit ra mà đọc =))
 # 10 vạn câu hỏi vì sao
 ### **Tại sao sử dụng `MySQL2`**
 Đầu tiên phải biết MySQL2 là một **thư viện** kết nối MySQL cho Node.js, trong khi đó MySQL là một hệ quản trị cơ sở dữ liệu phổ biến, được sử dụng rộng rãi trên nhiều nền tảng khác nhau.<br/>
@@ -212,29 +220,32 @@ ChatGPT sẽ cho bạn các **ví dụ thực tế về sequelize**
 Pooling là một kỹ thuật cho phép **tạo ra nhiều kết nối** đến cơ sở dữ liệu để đáp ứng nhu cầu xử lý tương tác với cơ sở dữ liệu của các ứng dụng. Nó cho phép các kết nối được tạo trước đó được **tái sử dụng** khi cần thiết, thay vì tạo ra các kết nối mới cho mỗi yêu cầu từ ứng dụng. <br/>
 Trong Node.js, mysql2 hỗ trợ Pooling thông qua hai phương thức chính: **createPool** và **pool**. createPool được sử dụng để tạo ra một pool kết nối mới, và pool được sử dụng để lấy một kết nối từ pool.<br/>
 eg. **createPool**
-    const mysql = require('mysql2');
+```bash
+const mysql = require('mysql2');
 
-    const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'mydb',
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
-    });
+const pool = mysql.createPool({
+host: 'localhost',
+user: 'root',
+password: 'password',
+database: 'mydb',
+waitForConnections: true,
+connectionLimit: 10,
+queueLimit: 0
+});
+```
 Ở đây, ta đã tạo ra một pool kết nối với giới hạn kết nối là 10. Nếu một yêu cầu từ ứng dụng yêu cầu kết nối nhưng tất cả các kết nối trong pool đều đã được sử dụng, thì yêu cầu đó sẽ được đưa vào hàng đợi (queueLimit: 0) và đợi cho đến khi một kết nối được giải phóng.
 
 eg. **Pool**<br/>
 Sau khi tạo ra một pool kết nối, ta có thể sử dụng phương thức pool để lấy một kết nối từ pool:
-    pool.getConnection((err, connection) => {
-    if (err) throw err; // xử lý lỗi
-
-    connection.query('SELECT * FROM users', (error, results, fields) => {
-        connection.release(); // giải phóng kết nối
-        if (error) throw error; // xử lý lỗi
-        console.log(results); // xử lý kết quả truy vấn
-    });
-    });
+```bash
+pool.getConnection((err, connection) => {
+if (err) throw err; // xử lý lỗi
+connection.query('SELECT * FROM users', (error, results, fields) => {
+    connection.release(); // giải phóng kết nối
+    if (error) throw error; // xử lý lỗi
+    console.log(results); // xử lý kết quả truy vấn
+});
+});
+```
 Ở đây, ta sử dụng phương thức **getConnection** của pool để lấy một kết nối từ pool. Khi kết nối được sử dụng xong, ta sử dụng phương thức release để giải phóng kết nối và đưa nó trở lại trong pool để sử dụng cho các yêu cầu tiếp theo. Sau đó, ta thực hiện truy vấn thông qua kết nối này bằng phương thức query
 
